@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Plugin for CSP merging -->
+    <type name="Magento\Csp\Model\Collector\CspWhitelistXmlCollector">
+        <plugin name="flipmediaco_csp_optimizer" type="Flipmediaco\CspCore\Plugin\CspOptimizerPlugin" sortOrder="10"/>
+    </type>
+
+    <!-- Register schema locator implementation -->
+    <type name="Flipmediaco\CspCore\Model\Config\CspWhitelistSchemaLocator" />
+
+    <!-- Preference to bind interface to concrete locator -->
+    <preference for="Magento\Framework\Config\SchemaLocatorInterface" type="Flipmediaco\CspCore\Model\Config\CspWhitelistSchemaLocator" />
+
+    <!-- Virtual type for the CSP whitelist reader -->
+    <virtualType name="Flipmediaco\CspCore\Model\Config\CspWhitelistReader" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="fileName" xsi:type="string">csp_whitelist.xml</argument>
+            <argument name="idAttributes" xsi:type="array">
+                <item name="/csp_whitelist/policies/policy" xsi:type="string">name</item>
+                <item name="/csp_whitelist/policies/policy/values/value" xsi:type="string">id</item>
+            </argument>
+            <argument name="domDocumentClass" xsi:type="string">Magento\Csp\Model\Config\Dom</argument>
+        </arguments>
+    </virtualType>
+</config>
