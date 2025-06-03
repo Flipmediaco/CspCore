@@ -1,0 +1,37 @@
+{
+    "name": "flipmediaco/cspcore",
+    "description": "Flipmediaco_CspCore is a Magento 2 module that optimises CSP headers by deduplicating and normalising sources, supporting wildcard simplification and external removelist rules.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "Laurie Greysky",
+            "email": "webmaster@flipmediaco.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1 || ^8.2 || ^8.3",
+        "magento/framework": "^103.0 || ^104.0",
+        "magento/module-csp": "^103.0 || ^104.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Flipmediaco\\CspCore\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "Flipmediaco/CspCore"
+            ]
+        ]
+    }
+}

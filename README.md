@@ -104,28 +104,36 @@ app/code/Flipmediaco/CspProject/etc/csp_removelist.xml
 
 ---
 
+## Installation
+
+```
+composer config repositories.flipmediaco-cspcore git https://github.com/Flipmediaco/CspCore.git
+composer require flipmediaco/cspcore
+bin/magento module:enable Flipmediaco_CspCore
+bin/magento setup:upgrade
+```
+
+---
+
+## If using CspProject:
+
+```
+tar -xf vendor/Flipmediaco/cspcore/Flipmediaco_CspProject.tar -C app/code/Flipmediaco
+bin/magento module:enable Flipmediaco_CspProject
+bin/magento setup:upgrade
+```
+
+---
+
 ## 🧪 Debugging
 
-Enable debug logging to see which sources were removed, retained, or skipped.
+This modules logs to /var/log/flipmediaco_csp.log when site is in developer mode.
 
 Magento will log lines like:
 
 ```
 [Flipmediaco_CSP] Removed subdomain cdn.stripe.com as wildcard *.stripe.com exists
 [Flipmediaco_CSP] Deduplicated script-src → original: 42, cleaned: 29
-```
-
-To enable CSP plugin logging:
-
-```bash
-bin/magento setup:config:set --enable-debug-logging=1
-```
-
-Or ensure your `env.php` includes:
-```php
-'debug' => [
-    'debug_logging' => true,
-],
 ```
 
 ---
@@ -135,12 +143,6 @@ Or ensure your `env.php` includes:
 - Magento 2.4.6+
 - PHP 8.1 / 8.2 / 8.3
 - Compatible with Apache and Nginx header constraints
-
----
-
-## 🤝 Contributing
-
-If you’re using this tool and want to extend it or submit improvements, please fork and PR via GitHub or contribute back via your own `CspProject` overrides.
 
 ---
 
