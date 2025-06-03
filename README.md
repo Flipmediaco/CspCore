@@ -39,6 +39,15 @@ bin/magento setup:upgrade
 bin/magento cache:flush
 ```
 
+Or Via Composer:
+
+```bash
+composer config repositories.flipmediaco-cspcore git https://github.com/Flipmediaco/CspCore.git
+composer require flipmediaco/cspcore
+bin/magento module:enable Flipmediaco_CspCore
+bin/magento setup:upgrade
+```
+
 ---
 
 ## 🧰 Flipmediaco_CspProject
@@ -100,17 +109,6 @@ app/code/Flipmediaco/CspProject/etc/csp_removelist.xml
         </policy>
     </policies>
 </csp_removelist>
-```
-
----
-
-## Installation
-
-```
-composer config repositories.flipmediaco-cspcore git https://github.com/Flipmediaco/CspCore.git
-composer require flipmediaco/cspcore
-bin/magento module:enable Flipmediaco_CspCore
-bin/magento setup:upgrade
 ```
 
 ---
