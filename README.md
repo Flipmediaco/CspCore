@@ -116,7 +116,7 @@ app/code/Flipmediaco/CspProject/etc/csp_removelist.xml
 ## If using CspProject:
 
 ```
-tar -xf vendor/Flipmediaco/cspcore/Flipmediaco_CspProject.tar -C app/code/Flipmediaco
+tar -xf vendor/flipmediaco/cspcore/Flipmediaco_CspProject.tar -C app/code/Flipmediaco
 bin/magento module:enable Flipmediaco_CspProject
 bin/magento setup:upgrade
 ```
